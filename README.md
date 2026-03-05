@@ -46,7 +46,7 @@ These are minimal steps to get a local/dev environment running.
 
 ```bash
 cp .env.example .env
-# Edit .env with your keys: OPENAI_API_KEY, GOOGLE_CREDENTIALS, N8N_BASIC_AUTH
+# Edit .env with keys: OPENAI_API_KEY, GOOGLE_CREDENTIALS, N8N_BASIC_AUTH
 ```
 
 2. Start services with Docker Compose (example):
