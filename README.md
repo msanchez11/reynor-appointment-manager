@@ -1,9 +1,11 @@
-<!-- Project README — polished -->
 # Conversational Appointment Orchestrator
 
 > Event-driven, self-hosted WhatsApp scheduling system with autonomous slot negotiation, real-time validation, and observability.
 
 [![Status](https://img.shields.io/badge/status-alpha-yellow.svg)](https://example.com)
+[![Notion](https://img.shields.io/badge/Notion-000?logo=notion&logoColor=fff)](https://www.notion.so/Reynor-Appointment-Manager-31a23f48764e8043bd36e79c9dfd2a05?source=copy_link)
+
+\+ For more information: [Deep Dive NOTION page](https://www.notion.so/Reynor-Appointment-Manager-31a23f48764e8043bd36e79c9dfd2a05?source=copy_link)
 
 ## Table of contents
 
