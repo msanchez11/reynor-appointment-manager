@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: appointment_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: appointment
+      POSTGRES_PASSWORD: appointmentpass
+      POSTGRES_DB: appointmentdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7
+    container_name: appointment_redis
+    restart: always
+    ports:
+      - "6379:6379"
+
+  n8n:
+    image: n8nio/n8n:latest
+    container_name: appointment_n8n
+    restart: always
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_BASIC_AUTH_ACTIVE
+      - N8N_BASIC_AUTH_USER
+      - N8N_BASIC_AUTH_PASSWORD
+      - DB_TYPE
+      - DB_POSTGRESDB_HOST
+      - DB_POSTGRESDB_DATABASE
+      - DB_POSTGRESDB_USER
+      - DB_POSTGRESDB_PASSWORD
+      - GENERIC_TIMEZONE=America/Argentina/Buenos_Aires
+    depends_on:
+      - postgres
+    volumes:
+      - n8n_data:/home/node/.n8n
+
+  evolution:
+    image: atendai/evolution-api
+    container_name: appointment_evolution
+    restart: always
+    ports:
+      - "8080:8080"
+    volumes:
+      - evolution_data:/app/data
+
+volumes:
+  postgres_data:
+  n8n_data:
+  evolution_data:
